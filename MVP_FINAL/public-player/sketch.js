@@ -12,9 +12,11 @@ const IPaddress = '192.168.1.5'; */
 let pantalla;
 
 //caraga de imagenes
-let imgIntefaz;
-let imgPant1;
-let logoNike;
+let pantallaPlayer1
+let pantallaPlayer2
+let pantallaPlayer3
+let pantallaPlayer4
+let pantallaPlayer5
 
 //Contador de 3 - 1 que hace el tiempo regresivo
 let timer;
@@ -23,15 +25,17 @@ let timer;
 let ancho;
 
 function preload(){
-    imgIntefaz = new loadImage("data/pantalla 1 (tiempo de carga).png");
-    imgPant1 = new loadImage("data/pantalla 2(indicaciones del juego).png");
-    logoNike = new loadImage("data/Logo reducido de nike.png")
+    pantallaPlayer1 = new loadImage("data/pantalla 1 (tiempo de carga).png");
+    pantallaPlayer2 = new loadImage("data/pantalla 2 (ingresa correo del participante).png");
+    pantallaPlayer3 = new loadImage("data/pantalla 3(indicaciones del juego).png");
+    pantallaPlayer4 = new loadImage("data/pantalla 4 (contador antes de comenzar el juego).png");
+    pantallaPlayer5 = new loadImage("data/pantalla 6(agradecimiento por jugar).png");
 }
 
 function setup() {
     timer = 3
 
-    pantalla = 1;
+    pantalla = 5;
 
     //metodo que permite el funcionamiento del cuadro de texto para poner el nombre
     userInput = createInput('');
@@ -54,7 +58,7 @@ function draw() {
     case 1:
     //pantalla inicial de carga 
     //carga imagen de la interfaz
-    image(imgIntefaz, 0, 0); 
+    image(pantallaPlayer1, 0, 0); 
     
     
     //barra de carga de la primera pantalla
@@ -84,16 +88,14 @@ function draw() {
         rect(110,827,209,35, 37);
         
         //Interfaz de las instrucciones
-        image(imgPant1, 0, 0);
+        image(pantallaPlayer2, 0, 0);
         
         break; 
 
 //---------------------------------------------------------------------
     //pantalla 3 ingresa datos del correo electronico
         case 3:
-        fill(100)
-        rectMode(CORNER)
-        rect(0, 0, 428, 926)
+        image(pantallaPlayer3, 0, 0)
         
         //Ingresa el nombre
         userInput.position((windowWidth / 2) - 80, windowHeight - 100);
@@ -115,13 +117,13 @@ function draw() {
             fill(0);
             rect(0, 0, 428, 926);
 
-            image(logoNike, 20, 20);
+            image(pantallaPlayer4, 0, 0);
 
-            fill(255);
+            /*fill(255);
             textSize(80);
             text(timer, 428/2-20, 926/2);
 
-            if(frameCount%15 == 0) {
+             if(frameCount%15 == 0) {
                 ancho +=40;
             
                 if(ancho>=200) {
@@ -133,9 +135,9 @@ function draw() {
                 if(ancho >= 600){
                     timer = 0;
                     /* socket.emit('cambio3' )*/
-                    pantalla = 5;
+                    /*pantalla = 5;
                     }
-            }
+            } */
             
 
             break;
@@ -147,7 +149,7 @@ function draw() {
             rectMode(CORNER)
             rect(0, 0, 428, 926)
 
-            image(logoNike, 20, 20);
+            image(pantallaPlayer5, 0, 0);
     
             //Boton para cambiar de pantalla
             fill(255)
