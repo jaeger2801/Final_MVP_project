@@ -27,13 +27,28 @@ ioServer.on('connection', (socket) => {
 
     }); 
 
-    //Metodo socket que cambia de la pantalla de publicidad a la de instrucciones
+    //Metodo socket que cambia de la pantalla de publicidad a la de registro del usuario ✓
     socket.on('cambio1', (cambioPantalla1) => {
         socket.broadcast.emit('cambio1', cambioPantalla1);
     }); 
 
-    //Metodo socket que cambia de la pantalla de instrucciones a contador para comenzar el juego
+    //Metodo socket que cambia de la pantalla de registro a instrucciones para comenzar el juego
     socket.on('cambio2', (cambioPantalla2) => {
         socket.broadcast.emit('cambio2', cambioPantalla2);
     }); 
+
+    //Metodo socket que cambia de la pantalla de instrucciones a contador para despues comenzar el juego 
+    socket.on('cambio3', (cambioPantalla3) => {
+        socket.broadcast.emit('cambio3', cambioPantalla3);
+    }); 
+
+    //Metodo socket que cambia de la pantalla de conteo regresivo a pantalla de juego en el celular 
+    socket.on('cambio4', (cambioPantalla4) => {
+        socket.broadcast.emit('cambio4', cambioPantalla4);
+    }); 
+
+    //Metodo socket que cambia de la pantalla del juego a la pantalla final en el telefono 
+    socket.on('cambio5', (cambioPantalla5) => {
+        socket.broadcast.emit('cambio5', cambioPantalla5);
+    });
 });

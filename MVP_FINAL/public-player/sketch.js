@@ -38,7 +38,7 @@ function preload(){
 function setup() {
     timer = 3
 
-    pantalla = 2;
+    pantalla = 1;
 
     //metodo que permite el funcionamiento del cuadro de texto para poner el correo
     emailInput = createInput('');
@@ -88,15 +88,16 @@ function draw() {
 //--------------------------------------------------------------------
     //pantalla 2 registro del usuario en su telefono
         case 2:
-        
-        //Interfaz de las instrucciones
-        image(pantallaPlayer2, 0, 0);
-
         //Boton de entendido
         fill(255)
         rectMode(CORNER)
         rect(50,761,328, 55, 37);
 
+
+        //Interfaz de las instrucciones
+        image(pantallaPlayer2, 0, 0);
+
+        
         //Ingresa el correo
         emailInput.position((windowWidth / 2) - 80, windowHeight - 100);
         emailInput.size(260);
@@ -114,19 +115,18 @@ function draw() {
 //---------------------------------------------------------------------
     //pantalla 3 pantalla que muestra las instrucciones del juego
         case 3:
-        image(pantallaPlayer3, 0, 0)
         
-        
-
         //Boton para cambiar de pantalla
         fill(255)
         rectMode(CORNER)
-        rect(110,827,209,35, 37);
+        rect(97,344,239,240, 100);
+
+        image(pantallaPlayer3, 0, 0)
 
         break;
 
         //--------------------------------------------------------------------
-        //Pantalla 4, conteo regresivo para iniciar el juego
+        //Pantalla 4, ejecucion del juego
         case 4:
             
             fill(0);
@@ -158,18 +158,13 @@ function draw() {
             break;
         
         //--------------------------------------------------------------------
-        //Pantalla 5, aqui ocurre la interacción del juego
+        //Pantalla 5, agradecimiento por jugar
         case 5:
-            fill(0)
-            rectMode(CORNER)
-            rect(0, 0, 428, 926)
+            
 
             image(pantallaPlayer5, 0, 0);
     
-            //Boton para cambiar de pantalla
-            fill(255)
-            rectMode(CORNER)
-            rect(110,827,209,35, 37);
+            
 
             break;
     }
@@ -189,7 +184,8 @@ function mouseClicked(){
         //------------------------------------------------------------------------------
         //boton pantalla 3
         case 3:
-            if(mouseX > 110 && mouseX < 319 && mouseY > 827 && mouseY < 862){
+            //rect(97,344,239,240, 100);
+            if(mouseX > 97 && mouseX < 336 && mouseY > 344 && mouseY < 584){
                 pantalla = 4;
                 console.log('se clikeó el cambio de pantalla');
                 socket.emit('cambio2')
@@ -199,8 +195,9 @@ function mouseClicked(){
              //------------------------------------------------------------------------------
         //boton pantalla 5
         //En esta pantalla se da la interacción de los clicks para que el juego funcione
-        case 5:
-            if(mouseX > 110 && mouseX < 319 && mouseY > 827 && mouseY < 862){
+        case 4:
+            //rect(97,344,239,240, 100);
+            if(mouseX > 97 && mouseX < 336 && mouseY > 344 && mouseY < 584){
                 console.log('se clikeó');
                 socket.emit('tapinformation');
             }

@@ -34,7 +34,7 @@ function preload() {
 function setup() { 
     ancho = 20;
     timer = 3;
-    pantalla = 0;
+    pantalla = 1;
     frameRate(60);
     createCanvas(1920, 1080);
     
@@ -44,15 +44,15 @@ function draw() {
     switch(pantalla){
        //pantalla 1
         //En esta pantalla va a estar la publicidad junto con el codigo QR
-        case 0:
+        case 1:
             
             image(imagenDisplayPantalla1, 0, 0);
 
             break;
     //---------------------------------------------------
        //pantalla 2
-        //En esta pantalla se van a mostrar las instrucciones del juego
-        case 1:
+        //En esta pantalla se van a mostrar la instruccion de hacer el registro
+        case 2:
             
             image(imagenDisplayPantalla2, 0, 0);
             
@@ -61,7 +61,7 @@ function draw() {
     //---------------------------------------------------
         //pantalla 3
         //En esta pantalla va a haber un contador del 3 - 1 para indicar al jugador cuando va a comenzar la experiencia
-        case 2:
+        case 3:
             image(imagenDisplayPantalla3, 0, 0);
 
             fill(255);
@@ -80,7 +80,7 @@ function draw() {
                 if(ancho >= 600){
                     timer = 0;
                     /* socket.emit('cambio3' )*/
-                    pantalla = 3;
+                    pantalla = 4;
                     }
             }
 
@@ -89,7 +89,7 @@ function draw() {
     //---------------------------------------------------
         //pantalla 4
         //En esta pantalla se va a desarrollar toda la experiencia del juego
-        case 3:
+        case 4:
             image(imagenDisplayPantalla4, 0, 0);
             text(contador, 1920/2-20, 1080/2)
 
@@ -99,7 +99,7 @@ function draw() {
     //---------------------------------------------------
         //pantalla 5
         //En esta pantalla se le indica al jugador el fin del juego y se le agradece por jugar
-        case 4:
+        case 5:
             image(imagenDisplayPantalla5, 0, 0, 1920, 1080);
 
             break;
@@ -121,54 +121,16 @@ socket.on('tapinformation', (tapInformations)  => {
     contador +=1;
     console.log(contador);
     if(contador >= 101){
-        pantalla = 4
+        pantalla = 6
     }
     })
 
 //aqui se va a hacer el llamado del cambio de pantalla de la publicidad a las instrucciones del juego
 socket.on('cambio1', (cambioPantalla1) => {
-    pantalla = 1;
+    pantalla = 2;
     })
 
 //Aqui se hace el cambio de la pantalla de las instrucciones al juego
-socket.on('cambio2', (cambioPantalla1) => {
-    pantalla = 2;
+socket.on('cambio2', (cambioPantalla2) => {
+    pantalla = 3;
     })
-/*
-Listen to the event and use the directions
-You may want to use switch-case structure
-*/
-
-    socket.on('position', (movement)=> {
-
-        switch (movement) {
-            case 'UP': 
-            character.y -= speed;
-                
-                break;
-        
-                case 'DOWN': 
-            character.y += speed;
-                
-                break;
-    
-                case 'RIGHT': 
-            character.x += speed;
-                
-                break;
-    
-                case 'LEFT': 
-            character.x -= speed;
-                
-                break;
-            
-        }
-        
-    })
-    
-
-
-
-/* socket.on('positions', (character) => {
-    character.x, character.y = character;
-}); */
