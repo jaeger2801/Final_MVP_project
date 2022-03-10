@@ -138,27 +138,9 @@ function draw() {
 
             image(pantallaPlayer4, 0, 0);
 
-            
-
-            /*fill(255);
-            textSize(80);
-            text(timer, 428/2-20, 926/2);
-
-             if(frameCount%15 == 0) {
-                ancho +=40;
-            
-                if(ancho>=200) {
-                    timer = 2;
-                }
-                if(ancho >= 400){
-                    timer = 1;
-                }
-                if(ancho >= 600){
-                    timer = 0;
-                    /* socket.emit('cambio3' )*/
-                    /*pantalla = 5;
-                    }
-            } */
+            socket.on('cambio5', (cambioPantalla5)=>{
+                pantalla = 5;
+            })
             
 
             break;

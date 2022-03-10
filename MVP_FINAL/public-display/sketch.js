@@ -111,7 +111,7 @@ function draw() {
         //En esta pantalla se le indica al jugador el fin del juego y se le agradece por jugar
         case 6:
             image(imagenDisplayPantalla6, 0, 0);
-
+            socket.emit('cambio5')
             break;
     }
     
