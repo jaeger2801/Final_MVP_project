@@ -178,6 +178,7 @@ function mouseClicked(){
             if(mouseX > 50 && mouseX < 378 && mouseY > 761 && mouseY < 816){
                 pantalla = 3;
                 console.log('se clikeó el cambio de pantalla');
+                socket.emit('cambio2')
             }
             break;
 
@@ -188,7 +189,8 @@ function mouseClicked(){
             if(mouseX > 97 && mouseX < 336 && mouseY > 344 && mouseY < 584){
                 pantalla = 4;
                 console.log('se clikeó el cambio de pantalla');
-                socket.emit('cambio2')
+                socket.emit('cambio3')
+                
             }
             break;
 

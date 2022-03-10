@@ -51,7 +51,7 @@ function draw() {
             break;
     //---------------------------------------------------
        //pantalla 2
-        //En esta pantalla se van a mostrar la instruccion de hacer el registro
+        //En esta pantalla se van a mostrar el registro del usuario
         case 2:
             
             image(imagenDisplayPantalla2, 0, 0);
@@ -60,10 +60,18 @@ function draw() {
 
     //---------------------------------------------------
         //pantalla 3
-        //En esta pantalla va a haber un contador del 3 - 1 para indicar al jugador cuando va a comenzar la experiencia
+        //En esta pantalla se muestran las instrucciones del juego
         case 3:
             image(imagenDisplayPantalla3, 0, 0);
 
+            break;
+
+    //---------------------------------------------------
+        //pantalla 4
+        //En esta pantalla va a haber un contador del 3 - 1 para indicar al jugador cuando va a comenzar la experiencia
+        case 4:
+            image(imagenDisplayPantalla4, 0, 0);
+            
             fill(255);
             textSize(80);
             text(timer, 1920/2-20, 1080/2);
@@ -79,35 +87,29 @@ function draw() {
                 }
                 if(ancho >= 600){
                     timer = 0;
-                    /* socket.emit('cambio3' )*/
-                    pantalla = 4;
+                    /* socket.emit('cambio4' )*/
+                    pantalla = 5;
                     }
             }
 
             break;
 
+
     //---------------------------------------------------
-        //pantalla 4
-        //En esta pantalla se va a desarrollar toda la experiencia del juego
-        case 4:
-            image(imagenDisplayPantalla4, 0, 0);
+        //pantalla 5
+        //En esta pantalla se realiza el juego
+        case 5:
+            image(imagenDisplayPantalla5, 0, 0, 1920, 1080);
+
+            //contador de taps que hace el usuario
             text(contador, 1920/2-20, 1080/2)
 
             break;
 
-
     //---------------------------------------------------
         //pantalla 5
         //En esta pantalla se le indica al jugador el fin del juego y se le agradece por jugar
-        case 5:
-            image(imagenDisplayPantalla5, 0, 0, 1920, 1080);
-
-            break;
-
-    //---------------------------------------------------
-        //pantalla 5
-        //En esta pantalla se le indica al jugador el fin del juego y se le agradece por jugar
-        case 5:
+        case 6:
             image(imagenDisplayPantalla6, 0, 0);
 
             break;
@@ -125,12 +127,17 @@ socket.on('tapinformation', (tapInformations)  => {
     }
     })
 
-//aqui se va a hacer el llamado del cambio de pantalla de la publicidad a las instrucciones del juego
+//aqui se va a hacer el llamado del cambio de pantalla de la publicidad al registro
 socket.on('cambio1', (cambioPantalla1) => {
     pantalla = 2;
     })
 
-//Aqui se hace el cambio de la pantalla de las instrucciones al juego
+//Aqui se hace el cambio de la pantalla de registro a las instrucciones
 socket.on('cambio2', (cambioPantalla2) => {
     pantalla = 3;
+    })
+
+//Aqui se hace el cambio de la pantalla de las instrucciones al conteo regresivo
+socket.on('cambio3', (cambioPantalla3) => {
+    pantalla = 4;
     })
