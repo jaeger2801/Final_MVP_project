@@ -1,3 +1,5 @@
+
+
 //Create the socket
 let socket = io();
 
@@ -53,9 +55,12 @@ function preload() {
 }
 
 function setup() { 
+    calorias = 0;
+    distancia = 0;
+    pasos = 0;
     ancho = 20;
     timer = 3;
-    pantalla = 5;
+    pantalla = 6;
     frameRate(60);
     createCanvas(1920, 1080);
     
@@ -120,6 +125,26 @@ function draw() {
         //pantalla 5
         //En esta pantalla se realiza el juego
         case 5:
+            
+        //Calorias
+            if(frameCount%200 == 0) {
+                distancia += 100
+                //console.log(distancia);
+            }
+        //distancia
+            if(frameCount%100 == 0) {
+                calorias += 15
+                console.log(calorias);
+            }
+        //pasos
+            if(frameCount%31 == 0) {
+                pasos += 1
+                //console.log(pasos);
+            }
+
+
+            
+
             image(imagenDisplayPantalla5, 0, 0, 1920, 1080);
 
             //logo de nike
@@ -129,6 +154,20 @@ function draw() {
             image(iconoCalorias, 765, 75);
             image(iconoDistancia, 1133, 75);
             image(iconoPasos, 1501, 79);
+
+            //información de lo que ha logrado
+            //info de calorias
+            fill(255);
+            textSize(48)
+            text(calorias, 912, 160)
+
+            //info de distancia
+            textSize(48)
+            text(distancia, 1262, 160)
+
+            //info de pasos
+            textSize(48)
+            text(pasos, 1612, 160)
 
             //contador de taps que hace el usuario
             fill(255);
@@ -142,6 +181,21 @@ function draw() {
         //En esta pantalla se le indica al jugador el fin del juego y se le agradece por jugar
         case 6:
             image(imagenDisplayPantalla6, 0, 0);
+
+            fill(255);
+            textSize(48)
+            text(calorias, 273, 648+50)
+            text('Calorias quemadas', 273+165, 648+50)
+
+            //info de distancia
+            textSize(48)
+            text(distancia, 273, 794+40)
+            text('Distancia recorrida', 273+165, 794+40)
+            //info de pasos
+            textSize(48)
+            text(pasos, 273, 940+40)
+            text('Pasos', 273+165, 940+40)
+
             socket.emit('cambio5')
             break;
     }
