@@ -60,7 +60,7 @@ function setup() {
     pasos = 0;
     ancho = 20;
     timer = 3;
-    pantalla = 4;
+    pantalla = 1;
     frameRate(60);
     createCanvas(1920, 1080);
     
