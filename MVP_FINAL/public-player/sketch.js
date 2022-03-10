@@ -4,8 +4,11 @@ let socket = io();
 
 let canvas;
  
+//InputEvent para que el usuario pueda poner su correo
+let emailInput;
+
 //InputEvent para que el usuario pueda poner su nombre
-let userInput;
+let nombreInput;
 
 /* const PORT = 5050;
 const IPaddress = '192.168.1.5'; */
@@ -35,10 +38,13 @@ function preload(){
 function setup() {
     timer = 3
 
-    pantalla = 1;
+    pantalla = 2;
+
+    //metodo que permite el funcionamiento del cuadro de texto para poner el correo
+    emailInput = createInput('');
 
     //metodo que permite el funcionamiento del cuadro de texto para poner el nombre
-    userInput = createInput('');
+    nombreInput = createInput('');
         
 
     canvas = createCanvas(428, 926);
@@ -67,7 +73,7 @@ function draw() {
     rect(65, 468, ancho+10, 10, 8);
 
     //configuración frame count para barra de carga
-    if(frameCount%50 == 0) {
+    if(frameCount%10 == 0) {
     ancho +=40;
 
     if(ancho>=310) {
@@ -80,28 +86,37 @@ function draw() {
     
 
 //--------------------------------------------------------------------
-    //pantalla 2 instrucciones del juego
+    //pantalla 2 registro del usuario en su telefono
         case 2:
-        //Boton de entendido
-        fill(255)
-        rectMode(CORNER)
-        rect(110,827,209,35, 37);
         
         //Interfaz de las instrucciones
         image(pantallaPlayer2, 0, 0);
+
+        //Boton de entendido
+        fill(255)
+        rectMode(CORNER)
+        rect(50,761,328, 55, 37);
+
+        //Ingresa el correo
+        emailInput.position((windowWidth / 2) - 80, windowHeight - 100);
+        emailInput.size(260);
+
+        emailInput.position(30, 367);
+
+        //Ingresa el nombre
+        nombreInput.position((windowWidth / 2) - 80, windowHeight - 100);
+        nombreInput.size(260);
+
+        nombreInput.position(30, 478);
         
         break; 
 
 //---------------------------------------------------------------------
-    //pantalla 3 ingresa datos del correo electronico
+    //pantalla 3 pantalla que muestra las instrucciones del juego
         case 3:
         image(pantallaPlayer3, 0, 0)
         
-        //Ingresa el nombre
-        userInput.position((windowWidth / 2) - 80, windowHeight - 100);
-        userInput.size(260);
-
-        userInput.position(80, 80);
+        
 
         //Boton para cambiar de pantalla
         fill(255)
@@ -163,8 +178,9 @@ function draw() {
 function mouseClicked(){
     switch(pantalla){
         case 2:
-            //rect(110,827,209,35, 37);
-            if(mouseX > 110 && mouseX < 319 && mouseY > 827 && mouseY < 862){
+            
+            //rect(50,761,328, 55, 37);
+            if(mouseX > 50 && mouseX < 378 && mouseY > 761 && mouseY < 816){
                 pantalla = 3;
                 console.log('se clikeó el cambio de pantalla');
             }
