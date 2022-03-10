@@ -73,7 +73,7 @@ function draw() {
     rect(65, 468, ancho+10, 10, 8);
 
     //configuración frame count para barra de carga
-    if(frameCount%10 == 0) {
+    if(frameCount%50 == 0) {
     ancho +=40;
 
     if(ancho>=310) {
