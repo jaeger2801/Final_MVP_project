@@ -60,7 +60,7 @@ function setup() {
     pasos = 0;
     ancho = 20;
     timer = 3;
-    pantalla = 6;
+    pantalla = 4;
     frameRate(60);
     createCanvas(1920, 1080);
     
@@ -99,8 +99,8 @@ function draw() {
             image(imagenDisplayPantalla4, 0, 0);
             
             fill(255);
-            textSize(80);
-            text(timer, 1920/2-20, 1080/2);
+            textSize(144);
+            text(timer, 1920/2-35, 1080/2+80);
 
             if(frameCount%15 == 0) {
                 ancho +=40;
