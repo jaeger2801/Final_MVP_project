@@ -17,22 +17,24 @@ let imagenDisplayPantalla2
 let imagenDisplayPantalla3
 let imagenDisplayPantalla4
 let imagenDisplayPantalla5
+let imagenDisplayPantalla6
 
 
 
 //Función para llamada de imagenes en el codigo
 function preload() {
     imagenDisplayPantalla1 = new loadImage('data/pantalla 1 (publicidad del juego).png');
-    imagenDisplayPantalla2 = new loadImage('data/pantalla 2 (instrucciones de lo que debe hacer el jugador en su celular).png');
-    imagenDisplayPantalla3 = new loadImage('data/pantalla 3 (contador de juego para que se prepare para jugar).png');
-    imagenDisplayPantalla4 = new loadImage('data/pantalla 4 (espacio donde se va a ver el juego) aqui sucede la magia.png');
-    imagenDisplayPantalla5 = new loadImage('data/pantalla 5 (pantalla que indica que el juego terminó).png');
+    imagenDisplayPantalla2 = new loadImage('data/pantalla 2 (registro del usuario).png');
+    imagenDisplayPantalla3 = new loadImage('data/pantalla 3 (instrucciones juego).png');
+    imagenDisplayPantalla4 = new loadImage('data/pantalla 4 (espacio del contador).png');
+    imagenDisplayPantalla5 = new loadImage('data/corredora gif.gif');
+    imagenDisplayPantalla6 = new loadImage('data/pantalla 6 (pantalla que indica que el juego terminó).png');
 }
 
 function setup() { 
     ancho = 20;
     timer = 3;
-    pantalla = 0;
+    pantalla = 4;
     frameRate(60);
     createCanvas(1920, 1080);
     
@@ -93,11 +95,20 @@ function draw() {
 
             break;
 
+
     //---------------------------------------------------
         //pantalla 5
         //En esta pantalla se le indica al jugador el fin del juego y se le agradece por jugar
         case 4:
-            image(imagenDisplayPantalla5, 0, 0);
+            image(imagenDisplayPantalla5, 0, 0, 1920, 1080);
+
+            break;
+
+    //---------------------------------------------------
+        //pantalla 5
+        //En esta pantalla se le indica al jugador el fin del juego y se le agradece por jugar
+        case 5:
+            image(imagenDisplayPantalla6, 0, 0);
 
             break;
     }

@@ -25,7 +25,7 @@ let timer;
 let ancho;
 
 function preload(){
-    pantallaPlayer1 = new loadImage("data/pantalla 1 (tiempo de carga).png");
+    pantallaPlayer1 = new loadImage("data/pantalla 1 (publicidad del juego).png");
     pantallaPlayer2 = new loadImage("data/pantalla 2 (ingresa correo del participante).png");
     pantallaPlayer3 = new loadImage("data/pantalla 3(indicaciones del juego).png");
     pantallaPlayer4 = new loadImage("data/pantalla 4 (contador antes de comenzar el juego).png");
@@ -35,7 +35,7 @@ function preload(){
 function setup() {
     timer = 3
 
-    pantalla = 5;
+    pantalla = 1;
 
     //metodo que permite el funcionamiento del cuadro de texto para poner el nombre
     userInput = createInput('');
