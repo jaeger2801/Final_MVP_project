@@ -20,6 +20,14 @@ let imagenDisplayPantalla5
 let imagenDisplayPantalla6
 
 
+//carga de iconos
+let iconoCalorias
+let iconoDistancia
+let iconoPasos
+
+//logo de nike
+let logoNikeBlanco
+
 
 //Función para llamada de imagenes en el codigo
 function preload() {
@@ -29,12 +37,20 @@ function preload() {
     imagenDisplayPantalla4 = new loadImage('data/pantalla 4 (espacio del contador).png');
     imagenDisplayPantalla5 = new loadImage('data/corredora gif.gif');
     imagenDisplayPantalla6 = new loadImage('data/pantalla 6 (pantalla que indica que el juego terminó).png');
+
+    //Iconos
+    iconoCalorias = new loadImage('data/iconos-02.png');
+    iconoDistancia = new loadImage('data/iconos-01.png');
+    iconoPasos = new loadImage('data/marcas de pasos-01.png');
+
+    //logo de nike
+    logoNikeBlanco = new loadImage('data/nike.png')
 }
 
 function setup() { 
     ancho = 20;
     timer = 3;
-    pantalla = 1;
+    pantalla = 6;
     frameRate(60);
     createCanvas(1920, 1080);
     
