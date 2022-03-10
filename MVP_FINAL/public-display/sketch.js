@@ -87,7 +87,7 @@ function draw() {
                 }
                 if(ancho >= 600){
                     timer = 0;
-                    /* socket.emit('cambio4' )*/
+                    socket.emit('cambio4' )
                     pantalla = 5;
                     }
             }

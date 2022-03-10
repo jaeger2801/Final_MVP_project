@@ -123,6 +123,10 @@ function draw() {
 
         image(pantallaPlayer3, 0, 0)
 
+        socket.on('cambio4', (cambioPantalla4)=>{
+            pantalla = 4;
+        })
+
         break;
 
         //--------------------------------------------------------------------
@@ -133,6 +137,8 @@ function draw() {
             rect(0, 0, 428, 926);
 
             image(pantallaPlayer4, 0, 0);
+
+            
 
             /*fill(255);
             textSize(80);
@@ -187,7 +193,7 @@ function mouseClicked(){
         case 3:
             //rect(97,344,239,240, 100);
             if(mouseX > 97 && mouseX < 336 && mouseY > 344 && mouseY < 584){
-                pantalla = 4;
+                //pantalla = 4;
                 console.log('se clikeó el cambio de pantalla');
                 socket.emit('cambio3')
                 
