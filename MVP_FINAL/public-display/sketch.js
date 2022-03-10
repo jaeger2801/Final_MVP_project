@@ -1,6 +1,11 @@
 //Create the socket
 let socket = io();
 
+//Variables de incremento
+let calorias;
+let distancia;
+let pasos;
+
 // Variable que indica la cantidad de clicks que se realiza dentro de la interaccion
 let contador = 0;
 
@@ -50,7 +55,7 @@ function preload() {
 function setup() { 
     ancho = 20;
     timer = 3;
-    pantalla = 6;
+    pantalla = 5;
     frameRate(60);
     createCanvas(1920, 1080);
     
@@ -117,8 +122,18 @@ function draw() {
         case 5:
             image(imagenDisplayPantalla5, 0, 0, 1920, 1080);
 
+            //logo de nike
+            image(logoNikeBlanco, -150, -300)
+
+            //Iconos
+            image(iconoCalorias, 765, 75);
+            image(iconoDistancia, 1133, 75);
+            image(iconoPasos, 1501, 79);
+
             //contador de taps que hace el usuario
-            text(contador, 1920/2-20, 1080/2)
+            fill(255);
+            textSize(180);
+            text(contador, 296, 600);
 
             break;
 
