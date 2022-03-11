@@ -128,16 +128,16 @@ function draw() {
             
         //Calorias
             if(frameCount%200 == 0) {
-                distancia += 100
+                distancia += 16
                 //console.log(distancia);
             }
         //distancia
             if(frameCount%100 == 0) {
-                calorias += 15
+                calorias += 7
                 console.log(calorias);
             }
         //pasos
-            if(frameCount%31 == 0) {
+            if(frameCount%32 == 0) {
                 pasos += 1
                 //console.log(pasos);
             }

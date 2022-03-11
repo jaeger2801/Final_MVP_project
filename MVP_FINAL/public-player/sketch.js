@@ -62,6 +62,10 @@ function draw() {
     switch(pantalla){
 
     case 1:
+
+    emailInput.hide();
+    nombreInput.hide();
+
     //pantalla inicial de carga 
     //carga imagen de la interfaz
     image(pantallaPlayer1, 0, 0); 
@@ -98,15 +102,20 @@ function draw() {
         image(pantallaPlayer2, 0, 0);
 
         
+        
+
+        
         //Ingresa el correo
         emailInput.position((windowWidth / 2) - 80, windowHeight - 100);
         emailInput.size(260);
+        emailInput.show();
 
         emailInput.position(30, 367);
 
         //Ingresa el nombre
         nombreInput.position((windowWidth / 2) - 80, windowHeight - 100);
         nombreInput.size(260);
+        nombreInput.show();
 
         nombreInput.position(30, 478);
         
@@ -115,6 +124,9 @@ function draw() {
 //---------------------------------------------------------------------
     //pantalla 3 pantalla que muestra las instrucciones del juego
         case 3:
+
+        emailInput.hide();
+        nombreInput.hide();
         
         //Boton para cambiar de pantalla
         fill(255)
