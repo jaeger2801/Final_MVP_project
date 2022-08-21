@@ -5,9 +5,12 @@ const express = require('express');
 const app = express();
 const PORT= 5050
 const httpServer = app.listen(PORT)
+console.log();
 //Create a new instance of Socket.io Server
 const { Server } = require('socket.io');
 const ioServer = new Server (httpServer); 
+
+
 
 const staticPlayer = express.static('public-player');
 const staticDisplay = express.static('public-display');
